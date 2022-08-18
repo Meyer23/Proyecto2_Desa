@@ -8,6 +8,8 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.rolesPath = '/api/roles';
+        this.modulosPath = '/api/modulos';
+        this.usuariosPath = '/api/usuarios';
         
         //Conectar a la base de datos
         this.database();
@@ -19,6 +21,8 @@ class Server {
         this.routes();
 
         this.app.use(this.rolesPath, require('../routes/roles'));
+        this.app.use(this.modulosPath, require('../routes/modulos'));
+        this.app.use(this.usuariosPath, require('../routes/usuarios'));
   
     }
     async database(){
