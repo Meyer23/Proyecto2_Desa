@@ -7,6 +7,7 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
+        this.authPath = '/api/auth';
         this.rolesPath = '/api/roles';
         this.modulosPath = '/api/modulos';
         this.usuariosPath = '/api/usuarios';
@@ -16,10 +17,14 @@ class Server {
 
         //Middlewares
         this.middlewares();
+        
+        // Lectura y parseo del body
+        this.app.use(express.json());
 
         //Routes
         this.routes();
 
+        this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.rolesPath, require('../routes/roles'));
         this.app.use(this.modulosPath, require('../routes/modulos'));
         this.app.use(this.usuariosPath, require('../routes/usuarios'));

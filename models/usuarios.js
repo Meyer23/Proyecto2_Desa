@@ -10,11 +10,15 @@ const Usuario = db.define('Usuarios', {
     },
 
     nombre: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
     },
 
     idRol: {
         type: DataTypes.INTEGER
+    },
+
+    email: {
+        type: DataTypes.STRING
     }
 })
 
