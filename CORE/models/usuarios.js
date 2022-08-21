@@ -6,6 +6,8 @@ const { db } = require('../database/dbconexion');
 const Usuario = db.define('Usuarios', {
     id: { 
         type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
         primaryKey: true
     },
 
@@ -18,6 +20,10 @@ const Usuario = db.define('Usuarios', {
     },
 
     email: {
+        type: DataTypes.STRING
+    },
+
+    password: {
         type: DataTypes.STRING
     }
 })

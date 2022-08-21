@@ -4,7 +4,7 @@ const   Usuario   = require('../models/usuarios');
 const login = async (req = request, res = response) => {
     const usuario = await Usuario.findOne({ where :
                      {email: req.body.email, 
-                      contrasenha: req.body.contrasenha
+                      password: req.body.password
                      }});
     if(usuario){
         res.status(200).json({
