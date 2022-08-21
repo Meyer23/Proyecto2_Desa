@@ -4,18 +4,17 @@ const   Usuario   = require('../models/usuarios');
 const login = async (req = request, res = response) => {
     const usuario = await Usuario.findOne({ where :
                      {email: req.body.email, 
-                      contrasenha: req.body.contrasenha,
-                    idRol: 1}});
+                      contrasenha: req.body.contrasenha
+                     }});
     if(usuario){
-        res.json({
-            msg: 'Bienvenido, Administrador.'
-        })
-    }
-    else{
-        res.status(401).json({
-            msg: 'Usuario no existe o password no valido.'
+        res.status(200).json({
+            msg: 'login correcto'
         });
     }
+    else
+        res.status(401).json({
+            msg: 'Usuario o contrasenha no valido.'
+        })
 };
 
 
