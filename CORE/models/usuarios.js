@@ -22,4 +22,4 @@ const Usuario = db.define('Usuarios', {
     }
 })
 
-module.exports = {Usuario};
+module.exports = Usuario;
