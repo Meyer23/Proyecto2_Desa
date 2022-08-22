@@ -8,7 +8,8 @@ const login = async (req = request, res = response) => {
         const validarPassword = bcrypt.compareSync(req.body.password, usuario.password)
         if(validarPassword){
             res.status(200).json({
-                msg: 'login correcto'
+                msg: 'login correcto', 
+                usuario_rol: usuario.idRol
             });
         }
         else{
