@@ -1,16 +1,16 @@
-export interface User {
-    estado: boolean;
-    nombre: string;
-    correo: string;
-    rol: string;
+export interface Usuarios {
     id: string;
+    nombre: string;
+    idRol: string;
+    email: string;
+    password: string;
 }
 
-export class User implements User {
-    constructor(nombre?: string,
-                correo?: string,
-                rol?: string,
-                id?: string
+export class Usuarios implements Usuarios {
+    constructor(id?: string,
+                nombre?: string,
+                idRol?: string,
+                email?: string                      
     ) {
         if (typeof id === "string") {
             this.id = id;
@@ -18,11 +18,11 @@ export class User implements User {
         if (nombre != null) {
             this.nombre = nombre;
         }
-        if (correo != null) {
-            this.correo = correo;
+        if (email != null) {
+            this.email = email;
         }
-        if (rol != null) {
-            this.rol = rol;
+        if (idRol != null) {
+            this.idRol = idRol;
         }
     }
 }
