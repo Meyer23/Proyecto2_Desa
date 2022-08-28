@@ -14,49 +14,52 @@
                 (keyup.enter)="login()"
                 (ngSubmit)="login()"
             >
-                <div class="input-content">
-                    <mat-form-field>
-                        <mat-label>Usuario</mat-label>
-                        <mat-icon matSuffix>person</mat-icon>
-                        <input  
-                                matInput
-                                placeholder="Ingrese nombre de usuario"
-                                [(ngModel)]="email"
-                                name="username"
-                                autocomplete="nope"
-                                required
-                        />
-                    </mat-form-field>
-                </div>
-                <div class="input-content">
-                    <mat-form-field>
-                        <mat-label>Contraseña</mat-label>
-                        <input
-                                matInput
-                                placeholder="Ingrese contraseña"
-                                [(ngModel)]="password"
-                                name="password"
-                                autocomplete="nope"
-                                required
-                                [type]="hide ? 'password' : 'text'"
-                        />
-                        <mat-icon matSuffix (click)="hide = !hide">{{
-                            hide ? 'visibility' : 'visibility_off'
-                            }}</mat-icon>
-                        <mat-hint *ngIf="authenticationError" [ngStyle]="{ color: 'red' }" align="start"
-                        >{{ getErrorMessage() }}
-                        </mat-hint>
-                    </mat-form-field>
-                </div>
+            <div class="input-content">
+                <mat-form-field>
+                    <mat-label>Usuario</mat-label>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <input  
+                        matInput
+                        placeholder="Ingrese nombre de usuario"
+                        [(ngModel)]="email"
+                        name="username"
+                        autocomplete="nope"
+                        required
+                    />
+                </mat-form-field>
+            </div>
+
+            <div class="input-content">
+                <mat-form-field>
+                    <mat-label>Contraseña</mat-label>
+                    <input
+                        matInput
+                        placeholder="Ingrese contraseña"
+                        [(ngModel)]="password"
+                        name="password"
+                        autocomplete="nope"
+                        required
+                        [type]="hide ? 'password' : 'text'"
+                    />
+                    
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility' : 'visibility_off'}}
+                    </mat-icon>
+
+                    <mat-hint *ngIf="authenticationError" [ngStyle]="{ color: 'red' }" align="start">
+                        {{ getErrorMessage() }}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
             </form>
         </mat-card-content>
         <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
             <button
-                    type="submit"
-                    mat-raised-button
-                    (click)="login()"
-                    color="primary"
-                    [disabled]="!isLoginButtonEnabled()"
+                type="submit"
+                mat-raised-button
+                (click)="login()"
+                color = "primary"
+                [disabled]="!isLoginButtonEnabled()"
             >
                 Login
             </button>

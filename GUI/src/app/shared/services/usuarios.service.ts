@@ -18,6 +18,7 @@ export type ENTITY_LIST_RESPONSE = {
 @Injectable({
     providedIn: 'root',
 })
+
 export class UsuariosService {
     constructor(private http: HttpClient) {
     }

@@ -20,5 +20,6 @@ const routes: Routes = [
     declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class HomeModule {
 }

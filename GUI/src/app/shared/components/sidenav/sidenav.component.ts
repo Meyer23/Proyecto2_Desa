@@ -7,6 +7,7 @@ import {AuthenticationService} from "../../../authentication/authentication.serv
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
+
 export class SidenavComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService) {
@@ -19,15 +20,15 @@ export class SidenavComponent implements OnInit {
   }
 
   isAuthenticated(): Observable<boolean> {
-      return this.authenticationService.isAuthenticated();
+    return this.authenticationService.isAuthenticated();
   }
 
   seeAdministrationMenu() {
-      return true
+    return true
   }
 
   checkRoles() {
-      return true
+    return true
   }
 
 }

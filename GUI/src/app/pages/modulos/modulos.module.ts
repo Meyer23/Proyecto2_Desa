@@ -12,22 +12,20 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
-
 
 // Project
-import {UsuariosRoutingModule} from './usuarios-routing.module';
-import {UsuariosComponent} from './usuarios.component';
+import {ModulosRoutingModule} from './modulos-routing.module';
+import {ModulosComponent} from './modulos.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { UsuariosEditComponent } from './usuarios-edit.component';
+import {ModulosEditComponent} from './modulos-edit.component';
 
 @NgModule({
-    declarations: [UsuariosComponent, UsuariosEditComponent],
+    declarations: [ModulosComponent, ModulosEditComponent],
     imports: [
         CommonModule,
-        UsuariosRoutingModule,
+        ModulosRoutingModule,
         MatCardModule,
         MatIconModule,
         MatProgressBarModule,
@@ -39,9 +37,9 @@ import { UsuariosEditComponent } from './usuarios-edit.component';
         MatTableModule,
         MatButtonModule,
         MatInputModule,
-        MatSelectModule,
         FlexLayoutModule,
+
     ],
 })
-export class UsuariosModule {
+export class ModulosModule {
 }

@@ -6,12 +6,13 @@ import {AuthenticationService} from 'src/app/authentication/authentication.servi
 @Injectable({
     providedIn: 'root'
 })
+
 export class LoginService {
 
     constructor(private http: HttpClient, private authenticationService: AuthenticationService, private router: Router) {
     }
 
-    login(credentials: { correo?: string; password?: string; }) {
+    login(credentials: { email?: string; password?: string; }) {
         return new Promise((resolve, reject) => {
             this.authenticationService.login(credentials).subscribe(
                 (data: any) => {

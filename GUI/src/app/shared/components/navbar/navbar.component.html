@@ -2,8 +2,8 @@
     <button class="menu-but" type="button" mat-button (click)="toggle()" *ngIf="isAuthenticated() | async">
         <mat-icon color="primary">menu</mat-icon>
     </button>
-    <span style="margin-left: 10px; color: #00377D;">
-        <h2>SGFP</h2>
+    <span style="margin-left: 10px; color: #7B1FA2;">
+        <h2>SISTEMA DE GESTIÓN FERRETERÍA PORTILLO</h2>
     </span>
     <span class="spacer">
     </span>
@@ -15,7 +15,7 @@
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="profile()">
             <mat-icon>person_pin</mat-icon>
-            <span>Nombre </span>
+            <span>Nombre</span>
         </button>
         <button (click)="logout()" routerLink="/login" mat-menu-item>
             <mat-icon>exit_to_app</mat-icon>

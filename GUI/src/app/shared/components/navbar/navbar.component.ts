@@ -20,14 +20,14 @@ export class NavbarComponent implements OnInit {
   }
 
   isAuthenticated(): Observable<boolean> {
-      return this.authenticationService.isAuthenticated();
+    return this.authenticationService.isAuthenticated();
   }
 
   profile() {
   }
 
   logout() {
-      AuthenticationService.logout();
+    AuthenticationService.logout();
   }
 
 }

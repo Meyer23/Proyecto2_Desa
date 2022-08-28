@@ -9,36 +9,35 @@ import {Router} from "@angular/router";
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
-
-  displayedColumns: string[] = ['id', 'nombre', 'idRol', 'email'];
+    displayedColumns: string[] = ['id', 'nombre', 'idRol', 'email','acciones'];
     dataSource: Usuarios[] = [];
 
-    constructor(private router: Router, private userService: UsuariosService) {
+    constructor(private router: Router, private usuariosService: UsuariosService) {
     }
 
     ngOnInit(): void {
-        this.findUsers();
+        this.findUsuarios();
     }
 
-    findUsers() {
-        this.userService.list()
+    findUsuarios() {
+        this.usuariosService.list()
             .subscribe(response => {
                 this.dataSource = response.usuarios;
             });
     }
 
-    navigateToEditUser(uid: string) {
-        this.router.navigate(['/usuarios/', uid, 'edit']);
+    navigateToEditUsuario(id: string) {
+        this.router.navigate(['/usuarios/', id, 'edit']);
     }
 
-    navigateToCreateUser() {
+    navigateToCreateUsuario() {
         this.router.navigate(['/usuarios/create']);
     }
 
     delete(element: Usuarios) {
-        this.userService.delete(element).subscribe(value => {
+        this.usuariosService.delete(element).subscribe(value => {
             if (value) {
-                this.findUsers();
+                this.findUsuarios();
             }
         });
     }

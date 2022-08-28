@@ -46,5 +46,6 @@ const routes: Routes = [
     exports: [],
     declarations: [LoginComponent],
 })
+
 export class LoginModule {
 }

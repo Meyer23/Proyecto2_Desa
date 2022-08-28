@@ -1,28 +1,28 @@
 .sidenav {
-    height: 100%;
-    padding-top: 100px;
-    background-color: #001950;
-  }
+  height: 100%;
+  padding-top: 100px;
+  background-color: #7B1FA2;
+}
   
-  .sidenav::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    display: none;
-  }
+.sidenav::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  display: none;
+}
   
-  mat-expansion-panel {
-    background-color: #001950;
-  }
+mat-expansion-panel {
+  background-color: #7B1FA2;
+}
   
-  .nav-button {
-    color: white;
-    width: 100%;
-  }
+.nav-button {
+  color: white;
+  width: 100%;
+}
   
-  .mat-icon {
-    color: white;
-  }
+.mat-icon {
+  color: white;
+}
   
-  .button-title {
-    margin-right: 16px;
-  }
+.button-title {
+  margin-right: 16px;
+}
