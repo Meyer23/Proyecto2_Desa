@@ -18,9 +18,9 @@ const validarJWTAdmin = async(req = request, res = response, next) => {
         const { email } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
 
         // leer el usuario que corresponde al email
-        const usuario = await Usuario.findOne({email});
+        const usuario = await Usuario.findOne({ where : {email: email, idRol: 1}});
 
-        if (email !== 'admin@desa.com') {
+        if (!usuario) {
             return res.status(401).json({
                 msg: `El usuario ${email} no tiene permiso para realizar esta accion`
             })
