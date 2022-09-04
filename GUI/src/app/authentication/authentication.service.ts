@@ -24,12 +24,12 @@ export class AuthenticationService {
     }
 
     storeAuthenticationToken(jwt: any) {
-        sessionStorage.setItem('authenticationToken', jwt);
-        localStorage.setItem('authenticationToken', jwt);
+        sessionStorage.setItem('Authentication', jwt);
+        localStorage.setItem('Authentication', jwt);
     }
 
     static logout() {
-        sessionStorage.removeItem('authenticationToken');
+        sessionStorage.removeItem('Authentication');
         sessionStorage.removeItem('modulos');
     }
 
