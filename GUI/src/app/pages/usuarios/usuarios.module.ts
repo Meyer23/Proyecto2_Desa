@@ -2,6 +2,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 // Angular Material
 import {MatCardModule} from '@angular/material/card';
@@ -22,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { UsuariosEditComponent } from './usuarios-edit.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     declarations: [UsuariosComponent, UsuariosEditComponent],
@@ -41,7 +43,9 @@ import { UsuariosEditComponent } from './usuarios-edit.component';
         MatInputModule,
         MatSelectModule,
         FlexLayoutModule,
+        MatPaginatorModule
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsuariosModule {
 }

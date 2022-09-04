@@ -2,11 +2,13 @@
     <button class="menu-but" type="button" mat-button (click)="toggle()" *ngIf="isAuthenticated() | async">
         <mat-icon color="primary">menu</mat-icon>
     </button>
-    <span style="margin-left: 10px; color: #7B1FA2;">
-        <h2>SISTEMA DE GESTIÓN FERRETERÍA PORTILLO</h2>
-    </span>
     <span class="spacer">
     </span>
+    <div class="example-button-container">
+        <button mat-fab color="primary" style="margin-right: 10px;" (click)="navigateToHome">
+          <mat-icon>home</mat-icon>
+        </button>
+    </div>
     <div fxLayout="column" fxLayoutAlign="end end" *ngIf="isAuthenticated()">
         <button style="margin-right: 20px;" [matMenuTriggerFor]="menu" mat-fab color="primary">
             <mat-icon>person</mat-icon>
