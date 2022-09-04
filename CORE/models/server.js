@@ -1,5 +1,5 @@
 const  express  = require('express');
-const { cors } = require('cors');
+const  cors  = require('cors');
 const { db } = require('../database/dbconexion.js');
 
 
@@ -17,6 +17,9 @@ class Server {
 
         //Middlewares
         this.middlewares();
+
+        // CORS
+        this.app.use(cors());
         
         // Lectura y parseo del body
         this.app.use(express.json());
