@@ -13,7 +13,7 @@ import {map} from "rxjs/operators";
   templateUrl: './usuarios-edit.component.html',
   styleUrls: ['./usuarios-edit.component.scss']
 })
-export class UsuariosEditComponent implements OnInit {
+export class UsuariosEditComponent implements OnInit { 
   dataValidationForm: FormGroup = this.formBuilder.group({});
   isNew: boolean = true;
   rolObservable: Observable<Roles[]> = this.rolesService.list()
@@ -26,8 +26,7 @@ export class UsuariosEditComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {    }
 
   ngOnInit(): void {
-    this.buildForm();
-  }
+    this.buildForm();  }
 
   private buildForm(): void {
     this.activatedRoute.data.subscribe(({data}) => {
@@ -42,7 +41,7 @@ export class UsuariosEditComponent implements OnInit {
         email: [data.email, [Validators.required, Validators.email]],
        });
 
-       console.log(this.dataValidationForm.value.rol)
+       console.log(this.dataValidationForm.value.idRol)
     });
   }
 
@@ -69,5 +68,4 @@ export class UsuariosEditComponent implements OnInit {
     compareRolesObjects(object1: Roles, object2: any) {
         return object1 && object2 && object1.id == object2._id;
     }
-
 }
