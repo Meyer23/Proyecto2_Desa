@@ -1,25 +1,18 @@
 <mat-toolbar class="navbar">
-    <button class="menu-but" type="button" mat-button (click)="toggle()" *ngIf="isAuthenticated() | async">
-        <mat-icon color="primary">menu</mat-icon>
-    </button>
     <span class="spacer">
     </span>
     <div class="example-button-container">
-        <button mat-fab color="primary" style="margin-right: 10px;" (click)="navigateToHome">
+        <button mat-fab color="primary" style="margin-right: 10px;" (click)="navigateToHome()" *ngIf="isAuthenticated() | async">
           <mat-icon>home</mat-icon>
         </button>
     </div>
-    <div fxLayout="column" fxLayoutAlign="end end" *ngIf="isAuthenticated()">
-        <button style="margin-right: 20px;" [matMenuTriggerFor]="menu" mat-fab color="primary">
+    <div fxLayout="column" fxLayoutAlign="end end">
+        <button style="margin-right: 20px;" [matMenuTriggerFor]="menu" mat-fab color="primary" *ngIf="isAuthenticated() | async">
             <mat-icon>person</mat-icon>
         </button>
     </div>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="profile()">
-            <mat-icon>person_pin</mat-icon>
-            <span>Nombre</span>
-        </button>
-        <button (click)="logout()" routerLink="/login" mat-menu-item>
+        <button (click)="logout()" mat-menu-item>
             <mat-icon>exit_to_app</mat-icon>
             <span>Salir</span>
         </button>

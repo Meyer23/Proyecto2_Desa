@@ -23,7 +23,7 @@
         <div class="form-container__input" fxLayoutAlign="center stretch">
             <mat-form-field appearance="outline">
                 <mat-label>Rol</mat-label>
-                <mat-select formControlName="rol" placeholder="Seleccione un rol" [compareWith]="compareRolesObjects">
+                <mat-select formControlName="idRol" placeholder="Seleccione un rol" [compareWith]="compareRolesObjects">
                     <mat-option *ngFor="let option of rolObservable | async" [value]="option"> 
                         {{option.nombre}}
                     </mat-option>
@@ -31,9 +31,8 @@
             </mat-form-field>
         </div>
 
-        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-            <button mat-raised-button color="primary" [disabled]="dataValidationForm?.invalid">
-                <mat-icon aria-hidden="false" aria-label="Continuar">navigate_next</mat-icon>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="left center">
+            <button mat-raised-button color="primary" [disabled]="dataValidationForm.invalid">
                 <span>Confirmar</span>
             </button>
         </mat-card-actions>
