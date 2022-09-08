@@ -1,14 +1,14 @@
 const { DataTypes } = require('sequelize');
 const bcrypt = require("bcrypt");
 const {db}  = require('../database/dbconexion');
+const { Roles } = require('./roles');
 
 
 const Usuario = db.define('Usuarios', {
     id: { 
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
-        primaryKey: true
+        autoIncrement: true
     },
 
     nombre: {

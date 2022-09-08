@@ -8,7 +8,7 @@ const Roles = db.define('Roles', {
         primaryKey: true
     },
 
-    nombre: {
+    nombreRol: {
         type: DataTypes.STRING
     }
 });
