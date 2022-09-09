@@ -2,20 +2,19 @@ const { response, request } = require('express');
 const bcrypt = require('bcryptjs');
 const { db } = require('../database/dbconexion')
 const  Usuario  = require('../models/usuarios');
-const Roles = require('../models/roles');
 
 const GetUsuarios = async (req, res) => {
 
         const usuarios = await db.query(
-            "SELECT u.nombre, u.email, r.nombreRol FROM USUARIOS u JOIN ROLES r ON u.idRol = r.id"
+            "SELECT u.nombre, u.id, u.email, r.nombreRol FROM USUARIOS u JOIN ROLES r ON u.idRol = r.id"
         );
         res.json( {usuarios} );
 }
 
 const PostUsuario = async (req, res) => {
     const {nombre, email, idRol} = req.body; 
-    const buscarUsuaro = await Usuario.findOne({where: {email: req.body.email}});
-    if(buscarUsuaro){
+    const buscarUsuario = await Usuario.findOne({where: {email: req.body.email}});
+    if(buscarUsuario){
         res.json({
             msg: `Usuario ${req.body.email}, ya existe.`
         });
@@ -36,7 +35,24 @@ const PostUsuario = async (req, res) => {
     }
 }
 
+const PutUsuario = async (req, res = response) => {
+    const salt = bcrypt.genSaltSync();
+    const actualizarUsuario = await Usuario.update(
+        {
+            nombre: req.body.nombre,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, salt),
+            idRol: req.body.idRol,
+        },
+        {
+            where: {id: req.params.id},
+        }
+    );
+        res.json(actualizarUsuario[0]);
+    }
+
 module.exports = {
     GetUsuarios,
-    PostUsuario
+    PostUsuario,
+    PutUsuario
 }

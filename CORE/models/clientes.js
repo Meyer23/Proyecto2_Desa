@@ -30,7 +30,8 @@ const Cliente = db.define('Clientes', {
     },
 
     estadoId: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        require: false
     },
 
     saldo:{
