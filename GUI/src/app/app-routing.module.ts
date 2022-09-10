@@ -25,14 +25,14 @@ const routes: Routes = [{
   path: 'usuarios',
   loadChildren: () =>
   import('./pages/usuarios/usuarios.module').then((module) => module.UsuariosModule),
-}//,
-//{
-//  path: 'roles',
-//  loadChildren: () =>
-//      import('./pages/roles/roles.module').then(
-//          (module) => module.RolModule
-//      ),
-//},
+},
+{
+  path: 'roles',
+  loadChildren: () =>
+      import('./pages/roles/roles.module').then(
+          (module) => module.RolesModule
+      ),
+},
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
                 <label for="nombre">
-                    <input id="nombre" fxFlexFill formControlName="nombre" matInput placeholder="Nombre del rol">
+                    <input id="nombre" fxFlexFill formControlName="nombre" matInput placeholder="Nombre del Rol">
                 </label>
             </mat-form-field>
         </div>
@@ -20,8 +20,7 @@
         </div>
 
         <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-            <button mat-raised-button color="primary" [disabled]="dataValidationForm?.invalid">
-                <mat-icon aria-hidden="false" aria-label="Continuar">navigate_next</mat-icon>
+            <button mat-raised-button color="primary" [disabled]="dataValidationForm.invalid">
                 <span>Confirmar</span>
             </button>
         </mat-card-actions>

@@ -20,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {ModulosEditComponent} from './modulos-edit.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     declarations: [ModulosComponent, ModulosEditComponent],
@@ -38,7 +39,7 @@ import {ModulosEditComponent} from './modulos-edit.component';
         MatButtonModule,
         MatInputModule,
         FlexLayoutModule,
-
+        MatPaginatorModule
     ],
 })
 export class ModulosModule {

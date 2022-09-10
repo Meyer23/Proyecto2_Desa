@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatSelectModule} from "@angular/material/select";
 import { RolesEditComponent } from './roles-edit.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     declarations: [RolesComponent, RolesEditComponent],
@@ -40,6 +41,7 @@ import { RolesEditComponent } from './roles-edit.component';
         MatInputModule,
         FlexLayoutModule,
         MatSelectModule,
+        MatPaginatorModule
     ],
 })
 
