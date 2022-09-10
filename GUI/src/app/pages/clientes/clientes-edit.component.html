@@ -1,0 +1,46 @@
+<div class="main-container" fxLayout="column" fxLayoutAlign="center center">
+    <h1>Crear o Editar Cliente</h1>
+    <form [formGroup]="dataValidationForm" (ngSubmit)="callOnSubmit()">
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Cédula</mat-label>
+                <label for="numeroCedula">
+                    <input id="numeroCedula" fxFlexFill formControlName="numeroCedula" matInput placeholder="Cédula">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>RUC</mat-label>
+                <label for="ruc">
+                    <input id="ruc" fxFlexFill formControlName="ruc" matInput placeholder="RUC">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <label for="correo">
+                    <input id="correo" fxFlexFill formControlName="correo" matInput placeholder="Email">
+                </label>             
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo Persona</mat-label>
+                <label for="tipoPersona">
+                    <input id="tipoPersona" fxFlexFill formControlName="tipoPersona" matInput placeholder="Tipo Persona">
+                </label>          
+            </mat-form-field>
+        </div>
+
+        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" [disabled]="dataValidationForm.invalid">
+                <span>Confirmar</span>
+            </button>
+        </mat-card-actions>
+    </form>
+</div>
