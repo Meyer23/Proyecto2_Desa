@@ -9,6 +9,10 @@ const Cliente = db.define('Clientes', {
         autoIncrement: true
     },
 
+    nombre: {
+        type: DataTypes.STRING
+    },
+
     numeroCedula: {
         type: DataTypes.STRING
     },
@@ -22,10 +26,14 @@ const Cliente = db.define('Clientes', {
     },
 
     tipoPersona: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
 
     telefono: {
+        type: DataTypes.STRING
+    },
+
+    direccion: {
         type: DataTypes.STRING
     },
 

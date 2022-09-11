@@ -1,15 +1,17 @@
 const { Router } = require('express');
-const { GetUsuarios, PostUsuario, PutUsuario } = require('../controllers/usuarioscontroller');
+const { GetUsuarios, PostUsuario, PutUsuario, DeleteUsuario } = require('../controllers/usuarioscontroller');
 const validarJWTAdmin = require('../middlewares/validar-admin-jwt');
 const router = Router();
 
 
-router.get('/', [
-validarJWTAdmin
-], GetUsuarios);
+router.get('/', GetUsuarios);
 
-router.put('/:id', PutUsuario)
+router.put('/:id',[
+    validarJWTAdmin
+], 
+PutUsuario)
 
 router.post('/', PostUsuario)
+router.delete('/:id', DeleteUsuario)
 
 module.exports = router;

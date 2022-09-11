@@ -40,7 +40,6 @@ const PutUsuario = async (req, res = response) => {
     const actualizarUsuario = await Usuario.update(
         {
             nombre: req.body.nombre,
-            email: req.body.email,
             password: bcrypt.hashSync(req.body.password, salt),
             idRol: req.body.idRol,
         },
@@ -48,11 +47,23 @@ const PutUsuario = async (req, res = response) => {
             where: {id: req.params.id},
         }
     );
-        res.json(actualizarUsuario[0]);
+        res.json({
+            msg: 'Actualizado un registro',
+            usuario: actualizarUsuario
+        });
     }
+
+const DeleteUsuario = async(req, res) => {
+    const borrarUsuario = await Usuario.destroy({where : {clienteId : req.params.id}});
+    res.json({
+        msg: 'Registro borrado.',
+        idUsuario: req.params.id
+    })
+}
 
 module.exports = {
     GetUsuarios,
     PostUsuario,
-    PutUsuario
+    PutUsuario,
+    DeleteUsuario
 }
