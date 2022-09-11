@@ -2,12 +2,12 @@
     <span class="spacer">
     </span>
     <div class="example-button-container">
-        <button mat-fab color="primary" style="margin-right: 10px;" (click)="navigateToHome()" *ngIf="isAuthenticated() | async">
+        <button mat-fab color="warn" style="margin-right: 10px;" (click)="navigateToHome()" *ngIf="isAuthenticated() | async">
           <mat-icon>home</mat-icon>
         </button>
     </div>
     <div fxLayout="column" fxLayoutAlign="end end">
-        <button style="margin-right: 20px;" [matMenuTriggerFor]="menu" mat-fab color="primary" *ngIf="isAuthenticated() | async">
+        <button style="margin-right: 20px;" [matMenuTriggerFor]="menu" mat-fab color="warn" *ngIf="isAuthenticated() | async">
             <mat-icon>person</mat-icon>
         </button>
     </div>

@@ -15,7 +15,7 @@ export class RolesComponent implements OnInit {
   constructor(private router: Router, private rolesService: RolesService) {    }
   roles: Roles[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['id', 'nombre', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombreRol', 'acciones'];
   
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
