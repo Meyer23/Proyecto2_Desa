@@ -31,6 +31,9 @@ export class AuthenticationService {
     static logout() {
         sessionStorage.removeItem('Authentication');
         sessionStorage.removeItem('modulos');
+        sessionStorage.removeItem('navbar');
+        sessionStorage.removeItem('sidenav');
+        localStorage.clear();
     }
 
     login(credentials: any): Observable<any> {
