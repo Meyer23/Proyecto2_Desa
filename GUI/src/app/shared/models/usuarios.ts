@@ -2,13 +2,13 @@ export interface Usuarios {
     id: string;
     nombre: string;
     email: string;
-    nombreRol: string;
+    idRol: string;
 }
 
 export class Usuarios implements Usuarios {
     constructor(id?: string,
                 nombre?: string,
-                nombreRol?: string,
+                idRol?: string,
                 email?: string                      
     ) {
         if (typeof id === "string") {
@@ -20,8 +20,8 @@ export class Usuarios implements Usuarios {
         if (email != null) {
             this.email = email;
         }
-        if (nombreRol != null) {
-            this.nombreRol = nombreRol;
+        if (idRol != null) {
+            this.idRol = idRol;
         }
     }
 }

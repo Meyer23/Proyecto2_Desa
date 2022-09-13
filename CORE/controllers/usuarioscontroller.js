@@ -5,10 +5,8 @@ const  Usuario  = require('../models/usuarios');
 
 const GetUsuarios = async (req, res) => {
 
-        const usuarios = await db.query(
-            "SELECT u.nombre, u.id, u.email, r.nombreRol FROM USUARIOS u JOIN ROLES r ON u.idRol = r.id"
-        );
-        res.json( {usuarios} );
+        const usuarios = await Usuario.findAll();
+        res.json(usuarios);
 }
 
 const PostUsuario = async (req, res) => {
@@ -54,7 +52,7 @@ const PutUsuario = async (req, res = response) => {
     }
 
 const DeleteUsuario = async(req, res) => {
-    const borrarUsuario = await Usuario.destroy({where : {clienteId : req.params.id}});
+    const borrarUsuario = await Usuario.destroy({where : {id : req.params.id}});
     res.json({
         msg: 'Registro borrado.',
         idUsuario: req.params.id
