@@ -1,0 +1,68 @@
+<div class="main-container" fxLayout="column" fxLayoutAlign="center center">
+    <h1>Crear o Editar Proveedor</h1>
+    <form [formGroup]="dataValidationForm" (ngSubmit)="callOnSubmit()">
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <label for="nombre">
+                    <input id="nombre" fxFlexFill formControlName="nombre" matInput placeholder="Nombre">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Cédula</mat-label>
+                <label for="numeroCedula">
+                    <input id="numeroCedula" fxFlexFill formControlName="numeroCedula" matInput placeholder="Cédula">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>RUC</mat-label>
+                <label for="ruc">
+                    <input id="ruc" fxFlexFill formControlName="ruc" matInput placeholder="RUC">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <label for="telefono">
+                    <input id="telefono" fxFlexFill formControlName="telefono" matInput placeholder="Teléfono">
+                </label>               
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <label for="email">
+                    <input id="email" fxFlexFill formControlName="email" matInput placeholder="Email">
+                </label>             
+            </mat-form-field>
+        </div>
+
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Dirección</mat-label>
+                <label for="direccion">
+                    <input id="direccion" fxFlexFill formControlName="direccion" matInput placeholder="Dirección">
+                </label>          
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="left center">
+            <button mat-raised-button color="warn" [disabled]="dataValidationForm.invalid">
+                <span>Confirmar</span>
+            </button>
+            <button mat-raised-button color="warn" (click)="navigateToProveedores()" style="margin-left: 22px;">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>
+

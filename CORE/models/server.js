@@ -12,6 +12,7 @@ class Server {
         this.modulosPath = '/api/modulos';
         this.usuariosPath = '/api/usuarios';
         this.clientesPath = '/api/clientes';
+        this.proveedoresPath = '/api/proveedores';
         
         //Conectar a la base de datos
         this.database();
@@ -33,6 +34,7 @@ class Server {
         this.app.use(this.modulosPath, require('../routes/modulos'));
         this.app.use(this.usuariosPath, require('../routes/usuarios'));
         this.app.use(this.clientesPath, require('../routes/clientes'));
+        this.app.use(this.proveedoresPath, require('../routes/proveedores'));
   
     }
     async database(){

@@ -27,7 +27,7 @@ export class ClientesEditComponent implements OnInit {
 
   private buildForm(): void {
     this.activatedRoute.data.subscribe(({data}) => {
-      if (data?.cleinteId) {
+      if (data?.clienteId) {
         this.isNew = false;
       }
 

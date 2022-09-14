@@ -35,5 +35,19 @@
             </button>
         </mat-expansion-panel>
     </mat-accordion>
+
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-description>
+                    <mat-icon class="mat-icon">keyboard_arrow_right</mat-icon>
+                    <span style="color: white;">Compras</span>                    
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-menu-item routerLink="/proveedores" routerLinkActive="active" (click)="toggle()" class="nav-button">
+                <span>Proveedores</span>
+            </button>
+        </mat-expansion-panel>
+    </mat-accordion>
 </nav>
 
