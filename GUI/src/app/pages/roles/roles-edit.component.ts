@@ -5,6 +5,7 @@ import {RolesService} from "../../shared/services/roles.service";
 import {Roles} from "../../shared/models/roles";
 import {ModulosService} from "../../shared/services/modulos.service";
 import {Modulos} from "../../shared/models/modulos";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-roles-edit',
@@ -20,7 +21,8 @@ export class RolesEditComponent implements OnInit {
   constructor(private rolesService: RolesService,
     private modulosService: ModulosService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -73,6 +75,10 @@ export class RolesEditComponent implements OnInit {
 
     compareModulosObjects(object1: Modulos, object2: any) {
         return object1 && object2 && object1.id == object2;
+    }
+
+    navigateToRoles() {
+      this.router.navigate(['roles']);
     }
 
 }

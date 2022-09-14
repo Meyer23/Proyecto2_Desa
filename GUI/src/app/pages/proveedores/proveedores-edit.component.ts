@@ -39,8 +39,7 @@ export class ProveedoresEditComponent implements OnInit {
         ruc: [data.ruc],      
         telefono: [data.telefono, [Validators.required]],   
         email: [data.email, [Validators.required, Validators.email]],
-        direccion: [data.direccion, [Validators.required]],       
-        saldo: [data.saldo]
+        direccion: [data.direccion, [Validators.required]]
         });
       });
   }

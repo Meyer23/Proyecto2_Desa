@@ -16,7 +16,7 @@ export class UsuariosComponent implements OnInit {
     }
     usuarios: Usuarios[] = [];
     dataSource: any;
-    displayedColumns: string[] = ['nombre', 'id', 'email', 'idRol', 'acciones'];
+    displayedColumns: string[] = ['id', 'nombre', 'idRol', 'email', 'acciones'];
 
     @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;

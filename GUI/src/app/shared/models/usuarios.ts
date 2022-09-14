@@ -1,8 +1,8 @@
 export interface Usuarios {
     id: string;
     nombre: string;
-    email: string;
     idRol: string;
+    email: string;  
 }
 
 export class Usuarios implements Usuarios {
@@ -17,11 +17,11 @@ export class Usuarios implements Usuarios {
         if (nombre != null) {
             this.nombre = nombre;
         }
-        if (email != null) {
-            this.email = email;
-        }
         if (idRol != null) {
             this.idRol = idRol;
         }
+        if (email != null) {
+            this.email = email;
+        }       
     }
 }

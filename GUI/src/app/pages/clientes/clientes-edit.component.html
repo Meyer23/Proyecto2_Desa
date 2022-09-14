@@ -37,10 +37,13 @@
             </mat-form-field>
         </div>
 
-        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="left center">
             <button mat-raised-button color="warn" [disabled]="dataValidationForm.invalid">
                 <span>Confirmar</span>
             </button>
-        </mat-card-actions>
+            <button mat-raised-button color="warn" (click)="navigateToClientes()" style="margin-left: 22px;">
+                Cancelar
+            </button>
+        </div>
     </form>
 </div>

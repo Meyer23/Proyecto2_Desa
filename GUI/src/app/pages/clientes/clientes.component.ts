@@ -17,7 +17,7 @@ export class ClientesComponent implements OnInit {
   }
   clientes: Clientes[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['clienteId', 'numeroCedula', 'ruc', 'correo', 'tipoPersona', 'telefono', 'saldo', 'acciones'];
+  displayedColumns: string[] = ['clienteId', 'nombre', 'numeroCedula', 'ruc', 'correo', 'tipoPersona', 'telefono', 'direccion', 'saldo', 'acciones'];
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

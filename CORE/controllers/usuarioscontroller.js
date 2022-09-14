@@ -6,7 +6,7 @@ const  Usuario  = require('../models/usuarios');
 const GetUsuarios = async (req, res) => {
 
         const usuarios = await Usuario.findAll();
-        res.json(usuarios);
+        res.json({usuarios});
 }
 
 const PostUsuario = async (req, res) => {

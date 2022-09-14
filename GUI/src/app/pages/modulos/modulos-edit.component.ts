@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Modulos} from "../../shared/models/modulos";
 import {ModulosService} from "../../shared/services/modulos.service";
 import {ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-modulos-edit',
@@ -16,7 +17,8 @@ export class ModulosEditComponent implements OnInit {
     constructor(
         private moduloService: ModulosService,
         private formBuilder: FormBuilder,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private router: Router
     ) {    }
 
     ngOnInit(): void {
@@ -54,5 +56,9 @@ export class ModulosEditComponent implements OnInit {
             window.history.back()
         }, 500);
     }
+
+    navigateToModulos() {
+        this.router.navigate(['modulos']);
+      }
 
 }

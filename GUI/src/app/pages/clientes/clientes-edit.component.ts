@@ -5,6 +5,7 @@ import {ClientesService} from "../../shared/services/clientes.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-clientes-edit',
@@ -18,7 +19,8 @@ export class ClientesEditComponent implements OnInit {
   constructor(
     private clienteService: ClientesService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {    }
 
   ngOnInit(): void {
@@ -33,12 +35,13 @@ export class ClientesEditComponent implements OnInit {
 
       this.dataValidationForm = this.formBuilder.group({
         clienteId: [data.clienteId],
+        nombre: [data.nombre, [Validators.required]],
         numeroCedula: [data.numeroCedula, [Validators.required]],
         ruc: [data.ruc],         
         correo: [data.correo, [Validators.required, Validators.email]],
         tipoPersona: [data.tipoPersona, [Validators.required]],
         telefono: [data.telefono, [Validators.required]],
-        saldo: [data.saldo]
+        direccion: [data.direccion, [Validators.required]]
         });
       });
   }
@@ -46,11 +49,13 @@ export class ClientesEditComponent implements OnInit {
   callOnSubmit() {
     let cliente = new Clientes(
       this.dataValidationForm?.value.clienteId,
+      this.dataValidationForm?.value.nombre,
       this.dataValidationForm?.value.numeroCedula,
       this.dataValidationForm?.value.ruc,
       this.dataValidationForm?.value.correo,
       this.dataValidationForm?.value.tipoPersona,
-      this.dataValidationForm?.value.telefono
+      this.dataValidationForm?.value.telefono,
+      this.dataValidationForm?.value.direccion
     )
 
     if (this.isNew) {
@@ -65,5 +70,10 @@ export class ClientesEditComponent implements OnInit {
       window.history.back()
     }, 500);
   }
+
+  navigateToClientes() {
+    this.router.navigate(['clientes']);
+  }
+
 
 }
