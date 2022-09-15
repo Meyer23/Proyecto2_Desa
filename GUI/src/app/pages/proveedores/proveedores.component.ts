@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-proveedores',
@@ -17,7 +18,7 @@ export class ProveedoresComponent implements OnInit {
   }
   proveedores: Proveedores[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['proveedorId', 'numeroCedula', 'ruc', 'telefono', 'email', 'direccion', 'saldo', 'acciones'];
+  displayedColumns: string[] = ['proveedorId', 'nombre', 'numeroCedula', 'ruc', 'telefono', 'email', 'direccion', 'saldo', 'acciones'];
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -47,12 +48,30 @@ export class ProveedoresComponent implements OnInit {
     this.router.navigate(['/proveedores/create']);
   }
 
-  delete(element: Proveedores) {
-    this.proveedoresService.delete(element).subscribe(value => {
-      if (value) {
-        this.findProveedores();
+  delete(element: Proveedores){
+    Swal.fire({
+      title: 'Está seguro que desea eliminar?',
+      text: 'No podrás recuperar este registro!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.proveedoresService.delete(element).subscribe(value => {
+          if (value) {
+            this.findProveedores();
+          }
+        });
+        Swal.fire(
+          'Eliminado'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado'
+        )
       }
-    });
+    })
   }
 
   applyFilter(event: Event) {

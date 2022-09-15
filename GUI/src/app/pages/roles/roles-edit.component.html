@@ -11,7 +11,7 @@
         </div>
 
         <div class="form-container__input" fxLayoutAlign="center stretch">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Módulos</mat-label>
                 <mat-select formControlName="modulos" multiple [compareWith]="compareModulosObjects">
                     <mat-option *ngFor="let value of availableModulos" [value]="value">{{value.nombre}}</mat-option>

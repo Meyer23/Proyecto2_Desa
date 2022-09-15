@@ -31,6 +31,23 @@
             </mat-form-field>
         </div>
 
+        <div class="form-container__input" fxLayoutAlign="center stretch">
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <label for="email">
+                    <input
+                        matInput
+                        placeholder="Ingrese contraseña"
+                        [(ngModel)]="password"
+                        name="password"
+                        autocomplete="nope"
+                        required
+                        [type]="hide ? 'password' : 'text'"
+                    />
+                </label>
+            </mat-form-field>
+        </div>
+
         <div fxLayout="row" fxLayoutAlign="left center">
             <button mat-raised-button color="warn" [disabled]="dataValidationForm.invalid">
                 <span>Confirmar</span>

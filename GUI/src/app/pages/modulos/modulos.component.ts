@@ -5,6 +5,7 @@ import {ModulosService} from "../../shared/services/modulos.service";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modulos',
@@ -45,15 +46,32 @@ export class ModulosComponent implements OnInit {
         this.router.navigate(['/modulos/create']);
     }
 
-    delete(modulo: Modulos) {
-        this.modulosService.delete(modulo)
+    delete(modulo: Modulos){
+        Swal.fire({
+          title: 'Está seguro que desea eliminar?',
+          text: 'No podrás recuperar este registro!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Aceptar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            this.modulosService.delete(modulo)
             .subscribe((response) => {
                 if (response) {
                     this.findModulos();
                 }
-            }
-        );
-    }
+            });
+            Swal.fire(
+              'Eliminado'
+            )
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire(
+              'Cancelado'
+            )
+          }
+        })
+      }
 
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;

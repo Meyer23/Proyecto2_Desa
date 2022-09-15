@@ -15,6 +15,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./usuarios-edit.component.scss']
 })
 export class UsuariosEditComponent implements OnInit { 
+  password: string = "";
+  hide = true;
   dataValidationForm: FormGroup = this.formBuilder.group({});
   isNew: boolean = true;
   rolObservable: Observable<Roles[]> = this.rolesService.list()
@@ -72,6 +74,6 @@ export class UsuariosEditComponent implements OnInit {
     }
 
     navigateToUsuarios() {
-      this.router.navigate(['clientes']);
+      this.router.navigate(['usuarios']);
     }
 }

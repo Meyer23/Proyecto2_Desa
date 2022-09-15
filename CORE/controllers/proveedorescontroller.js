@@ -23,8 +23,8 @@ const PostProveedor = async (req, res) =>{
             nombre: req.body.nombre,
             numeroCedula: req.body.numeroCedula,
             ruc : req.body.ruc,
-            email: req.body.email,
             telefono: req.body.telefono,
+            email: req.body.email,           
             direccion: req.body.direccion
         }
         const nuevoProveedor = await Proveedor.create(proveedor);
@@ -40,8 +40,8 @@ const PutProveedor = async(req, res) => {
         nombre: req.body.nombre,
         numeroCedula: req.body.numeroCedula,
         ruc : req.body.ruc,
-        email: req.body.email,
         telefono: req.body.telefono,
+        email: req.body.email,
         direccion: req.body.direccion        
     },
     {

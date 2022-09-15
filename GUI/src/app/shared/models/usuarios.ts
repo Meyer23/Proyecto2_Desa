@@ -3,13 +3,15 @@ export interface Usuarios {
     nombre: string;
     idRol: string;
     email: string;  
+    password: string;
 }
 
 export class Usuarios implements Usuarios {
     constructor(id?: string,
                 nombre?: string,
                 idRol?: string,
-                email?: string                      
+                email?: string,
+                password?: string                      
     ) {
         if (typeof id === "string") {
             this.id = id;
@@ -22,6 +24,9 @@ export class Usuarios implements Usuarios {
         }
         if (email != null) {
             this.email = email;
-        }       
+        } 
+        if (password != null) {
+            this.password = password;
+        }          
     }
 }

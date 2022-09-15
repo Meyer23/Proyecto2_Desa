@@ -5,6 +5,7 @@ import {Roles} from "../../shared/models/roles";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-roles',
@@ -45,14 +46,31 @@ export class RolesComponent implements OnInit {
     this.router.navigate(['/roles/create']);
   }
 
-  delete(rol: Roles) {
-    this.rolesService.delete(rol)
+  delete(rol: Roles){
+    Swal.fire({
+      title: 'Está seguro que desea eliminar?',
+      text: 'No podrás recuperar este registro!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.rolesService.delete(rol)
       .subscribe((response) => {
         if (response) {
           this.findRoles();
         }
+      });
+        Swal.fire(
+          'Eliminado'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado'
+        )
       }
-    );
+    })
   }
 
   applyFilter(event: Event) {

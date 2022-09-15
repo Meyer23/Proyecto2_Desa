@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-usuarios',
@@ -46,13 +47,31 @@ export class UsuariosComponent implements OnInit {
         this.router.navigate(['/usuarios/create']);
     }
 
-    delete(element: Usuarios) {
-        this.usuariosService.delete(element).subscribe(value => {
-            if (value) {
-                this.findUsuarios();
-            }
-        });
-    }
+    delete(element: Usuarios){
+        Swal.fire({
+          title: 'Está seguro que desea eliminar?',
+          text: 'No podrás recuperar este registro!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Aceptar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            this.usuariosService.delete(element).subscribe(value => {
+                if (value) {
+                    this.findUsuarios();
+                }
+            });
+            Swal.fire(
+              'Eliminado'
+            )
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire(
+              'Cancelado'
+            )
+          }
+        })
+      }
 
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;

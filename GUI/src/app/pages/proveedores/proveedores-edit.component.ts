@@ -35,6 +35,7 @@ export class ProveedoresEditComponent implements OnInit {
 
       this.dataValidationForm = this.formBuilder.group({
         proveedorId: [data.proveedorId],
+        nombre: [data.nombre],
         numeroCedula: [data.numeroCedula, [Validators.required]],
         ruc: [data.ruc],      
         telefono: [data.telefono, [Validators.required]],   
@@ -47,6 +48,7 @@ export class ProveedoresEditComponent implements OnInit {
   callOnSubmit() {
     let proveedor = new Proveedores(
       this.dataValidationForm?.value.proveedorId,
+      this.dataValidationForm?.value.nombre,
       this.dataValidationForm?.value.numeroCedula,
       this.dataValidationForm?.value.ruc,
       this.dataValidationForm?.value.telefono,

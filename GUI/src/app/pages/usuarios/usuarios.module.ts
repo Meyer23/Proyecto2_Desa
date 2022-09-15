@@ -14,6 +14,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 
 
 // Project
@@ -43,7 +44,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatInputModule,
         MatSelectModule,
         FlexLayoutModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        FormsModule
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -4,8 +4,9 @@ import {Clientes} from "../../shared/models/clientes";
 import {ClientesService} from "../../shared/services/clientes.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {map, startWith} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-clientes-edit',
@@ -15,6 +16,8 @@ import {Router} from "@angular/router";
 export class ClientesEditComponent implements OnInit {
   dataValidationForm: FormGroup = this.formBuilder.group({});
   isNew: boolean = true;
+  typeControl = new FormControl('');
+  options: string[] = ['Física', 'Jurídica'];
 
   constructor(
     private clienteService: ClientesService,

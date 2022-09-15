@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-clientes',
@@ -47,13 +48,13 @@ export class ClientesComponent implements OnInit {
     this.router.navigate(['/clientes/create']);
   }
 
-  delete(element: Clientes) {
-    this.clientesService.delete(element).subscribe(value => {
-      if (value) {
-        this.findClientes();
-      }
-    });
-  }
+  //delete(element: Clientes) {
+  //  this.clientesService.delete(element).subscribe(value => {
+  //    if (value) {
+  //      this.findClientes();
+  //    }
+  //  });
+  //}
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -64,5 +65,30 @@ export class ClientesComponent implements OnInit {
     }
   }
 
+  delete(element: Clientes){
+    Swal.fire({
+      title: 'Está seguro que desea eliminar?',
+      text: 'No podrás recuperar este registro!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.clientesService.delete(element).subscribe(value => {
+          if (value) {
+            this.findClientes();
+          }
+        });
+        Swal.fire(
+          'Eliminado'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado'
+        )
+      }
+    })
+  }
 
 }
