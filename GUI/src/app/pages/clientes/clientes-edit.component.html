@@ -28,7 +28,24 @@
             </mat-form-field>
         </div>
 
-        
+        <div fxLayoutAlign="center stretch">
+            <form class="type-form">
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Tipo Persona</mat-label>
+                  <input type="text"
+                         placeholder="Tipo Persona"
+                         aria-label="Number"
+                         matInput
+                         [formControl]="typeControl"
+                         [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+        </div>
 
         <div class="form-container__input" fxLayoutAlign="center stretch">
             <mat-form-field appearance="outline">
