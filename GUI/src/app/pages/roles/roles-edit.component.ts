@@ -38,7 +38,7 @@ export class RolesEditComponent implements OnInit {
   
       this.dataValidationForm = this.formBuilder.group({
         id: [data?.id],
-        nombre: [data?.nombre, [Validators.required]],
+        nombreRol: [data?.nombreRol, [Validators.required]],
         modulos: [data?.modulos, [Validators.required]]
       });
     });
@@ -56,7 +56,7 @@ export class RolesEditComponent implements OnInit {
 
     let rol = new Roles(
       this.dataValidationForm?.value.id,
-      this.dataValidationForm?.value.nombre,
+      this.dataValidationForm?.value.nombreRol,
       selectedModulosIdentifiers,
     )
 
