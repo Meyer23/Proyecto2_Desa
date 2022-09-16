@@ -1,19 +1,19 @@
 export interface Usuarios {
-    id: string;
+    id: number;
     nombre: string;
-    idRol: string;
+    idRol: number;
     email: string;  
     password: string;
 }
 
 export class Usuarios implements Usuarios {
-    constructor(id?: string,
+    constructor(id?: number,
                 nombre?: string,
-                idRol?: string,
+                idRol?: number,
                 email?: string,
                 password?: string                      
     ) {
-        if (typeof id === "string") {
+        if (id != null) {
             this.id = id;
         }
         if (nombre != null) {

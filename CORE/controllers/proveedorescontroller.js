@@ -6,7 +6,11 @@ const  Proveedor  = require('../models/proveedores');
 
 const GetProveedores = async (req, res) => {
 
-    const proveedores = await Proveedor.findAll();
+    const proveedores = await Proveedor.findAll(
+        {
+            where: {estadoId: 1}
+        }
+    );
     res.json( {proveedores} );
 }
 
@@ -54,7 +58,14 @@ const PutProveedor = async(req, res) => {
 }
 
 const DeleteProveedor = async(req, res) => {
-    const borrarProveedor = await Proveedor.destroy({where : {proveedorId: req.params.id}});
+    const borrarProveedor = await Proveedor.update(
+        {
+            estadoId: 2
+        },
+        {
+            where: {proveedorId: req.params.id}
+        }
+    );
     res.json({
         msg: 'Proveedor borrado.',
         proveedorId: req.params.id
