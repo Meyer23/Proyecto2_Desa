@@ -16,7 +16,7 @@ import {FormControl} from '@angular/forms';
 export class ClientesEditComponent implements OnInit {
   dataValidationForm: FormGroup = this.formBuilder.group({});
   isNew: boolean = true;
-  typeControl = new FormControl('');
+  myControl = new FormControl('');
   options: string[] = ['Física', 'Jurídica'];
 
   constructor(
@@ -42,7 +42,6 @@ export class ClientesEditComponent implements OnInit {
         numeroCedula: [data.numeroCedula, [Validators.required]],
         ruc: [data.ruc],         
         correo: [data.correo, [Validators.required, Validators.email]],
-        tipoPersona: [data.tipoPersona, [Validators.required]],
         telefono: [data.telefono, [Validators.required]],
         direccion: [data.direccion, [Validators.required]]
         });
@@ -56,7 +55,6 @@ export class ClientesEditComponent implements OnInit {
       this.dataValidationForm?.value.numeroCedula,
       this.dataValidationForm?.value.ruc,
       this.dataValidationForm?.value.correo,
-      this.dataValidationForm?.value.tipoPersona,
       this.dataValidationForm?.value.telefono,
       this.dataValidationForm?.value.direccion
     )

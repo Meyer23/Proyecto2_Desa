@@ -12,7 +12,6 @@ import {Modulos} from "../models/modulos";
 import {map} from "rxjs/operators";
 
 export type ENTITY_LIST_RESPONSE = {
-    "total": Number,
     "roles": Roles[]
 }
 
@@ -30,10 +29,10 @@ export class RolesService {
     find(id: string): Observable<Roles> {
         const params = new HttpParams().append('id', id);
 
-        return this.http.get<ENTITY_LIST_RESPONSE>(`${environment.SERVER_API_URL}/roles`, {params})
+        return this.http.get<ENTITY_LIST_RESPONSE>(`${environment.SERVER_API_URL}/roles/`, {params})
             .pipe(
-                map(value => value.roles[0])
-            );
+               map(value => value.roles[0])
+           );
     }
 
     create(rol: Roles): Observable<Modulos> {
